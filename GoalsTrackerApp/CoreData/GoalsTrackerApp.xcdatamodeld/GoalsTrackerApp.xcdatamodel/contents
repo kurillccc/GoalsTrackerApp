@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24512" systemVersion="25C56" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
+    <entity name="Goal" representedClassName=".Goal" syncable="YES">
         <attribute name="addedOn" attributeType="Date" defaultDateTimeInterval="793564740" usesScalarValueType="NO"/>
         <attribute name="icon" attributeType="String" defaultValueString=""/>
         <attribute name="id" attributeType="UUID" defaultValueString="DE4B273B-F203-4A5F-B1AE-26AE51E9B9D1" usesScalarValueType="NO"/>
@@ -8,10 +8,10 @@
         <attribute name="modifiedOn" attributeType="Date" defaultDateTimeInterval="793564740" usesScalarValueType="NO"/>
         <attribute name="position" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String" defaultValueString=""/>
-        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Goal" inverseName="records" inverseEntity="Goal"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GoalRecord" inverseName="goal" inverseEntity="GoalRecord"/>
     </entity>
-    <entity name="GoalRecord" representedClassName="GoalRecord" syncable="YES" codeGenerationType="class">
+    <entity name="GoalRecord" representedClassName=".GoalRecord" syncable="YES">
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="793565220" usesScalarValueType="NO"/>
-        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal"/>
+        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="records" inverseEntity="Goal"/>
     </entity>
 </model>

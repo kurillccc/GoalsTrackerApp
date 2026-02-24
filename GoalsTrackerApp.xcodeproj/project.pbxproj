@@ -13,10 +13,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FC0773852F4CC4CF008A2BD6 /* Exceptions for "GoalsTrackerApp" folder in "GoalsTrackerApp" target */ = {
+		FC85F1602F4DFF4900D18751 /* Exceptions for "GoalsTrackerApp" folder in "GoalsTrackerApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = FC0773742F4CC4CE008A2BD6 /* GoalsTrackerApp */;
 		};
@@ -26,7 +26,7 @@
 		FC0773772F4CC4CE008A2BD6 /* GoalsTrackerApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				FC0773852F4CC4CF008A2BD6 /* Exceptions for "GoalsTrackerApp" folder in "GoalsTrackerApp" target */,
+				FC85F1602F4DFF4900D18751 /* Exceptions for "GoalsTrackerApp" folder in "GoalsTrackerApp" target */,
 			);
 			path = GoalsTrackerApp;
 			sourceTree = "<group>";
