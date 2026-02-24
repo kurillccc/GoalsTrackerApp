@@ -10,12 +10,16 @@ import CoreData
 
 @main
 struct GoalsTrackerAppApp: App {
+    
+    // MARK: - Properties
     let persistenceController = PersistenceController.shared
-
+    
+    // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GoalsView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
+    
 }
