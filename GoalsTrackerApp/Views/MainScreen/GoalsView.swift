@@ -30,7 +30,7 @@ struct GoalsView: View {
             Text("New")
         }
     }
-    
+        
     // MARK: - Body
     var body: some View {
         NavigationView {
