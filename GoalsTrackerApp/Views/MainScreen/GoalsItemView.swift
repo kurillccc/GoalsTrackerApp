@@ -28,6 +28,7 @@ struct GoalsItemView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .aspectRatio(1.0, contentMode: .fill)
         .padding(4)
+        .background(Color.background)
         .cornerRadius(8.0)
         .shadow(color: .gray, radius: 3.0, x: 0.0, y: 0.0)
     }
