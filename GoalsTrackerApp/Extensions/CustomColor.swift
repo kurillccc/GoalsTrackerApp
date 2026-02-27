@@ -10,7 +10,6 @@ import SwiftUI
 
 enum CustomColor: String, CaseIterable {
     
-    case yellow
     case blue
     case green
     case orange
@@ -19,7 +18,6 @@ enum CustomColor: String, CaseIterable {
     
     var uiColor: UIColor {
         switch self {
-        case .yellow: return UIColor(named: "bgYellow") ?? .systemYellow
         case .blue: return UIColor(named: "bgBlue") ?? .systemBlue
         case .green: return UIColor(named: "bgGreen") ?? .systemGreen
         case .orange: return UIColor(named: "bgOrange") ?? .systemOrange

@@ -21,7 +21,7 @@ struct PersistenceController {
             let goal = Goal(context: viewContext)
             goal.id = UUID()
             goal.icon = ["🏃‍♂️", "🧑‍💻", "📚", "🍏", "🍩"][i]
-            goal.color = ["yellow", "blue", "green", "orange", "pink", "red"][i]
+            goal.color = ["blue", "green", "orange", "pink", "red"][i]
             goal.title = ["Jogging", "Project", "Reading", "Eat Healthy", "Avoid Sugar"][i]
             goal.position = Int16(i)
             goal.addedOn = Date()

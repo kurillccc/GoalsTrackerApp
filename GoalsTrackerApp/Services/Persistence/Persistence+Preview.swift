@@ -22,15 +22,6 @@ extension PersistenceController {
         )
         
         addGoal(
-            icon: "🧑‍💻",
-            color: .yellow,
-            title: "Project",
-            position: 1,
-            isCompletedToday: false,
-            context: context
-        )
-        
-        addGoal(
             icon: "📚",
             color: .green,
             title: "Reading",
