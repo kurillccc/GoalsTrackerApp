@@ -16,21 +16,60 @@ struct GoalsItemView: View {
     // MARK: - Body
     var body: some View {
         VStack {
-            Text(goal.icon)
-                .font(.system(size: 60))
-            Text(goal.title)
-                .font(.footnote)
-                .foregroundColor(.primary)
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-                .multilineTextAlignment(.center)
+            ZStack {
+                Rectangle()
+                    .fill(goal.customColor.color)
+                    .cornerRadius(16)
+                
+                Spacer()
+                
+                VStack(alignment: .leading, spacing: 30) {
+                    ZStack {
+                        Circle()
+                            .fill(Color.white.opacity(0.2))
+                            .frame(width: 40, height: 40)
+                        Text(goal.icon)
+                            .font(.system(size: 18))
+                            .frame(width: 40, height: 40, alignment: .center)
+                            .accessibilityLabel(Text(goal.title))
+                    }
+
+                    Text(goal.title)
+                        .font(.footnote.weight(.semibold))
+                        .foregroundColor(.white)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.8)
+                        .multilineTextAlignment(.leading)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading)
+            }
+            
+            HStack {
+                Text("0 дней")
+                
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(.white)
+                        .frame(width: 34, height: 34)
+                        .background(
+                            Circle()
+                                .fill(Color.green)
+                        )
+                        .accessibilityLabel("Добавить день")
+                }
+                
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .aspectRatio(1.0, contentMode: .fill)
+        .aspectRatio(1.2, contentMode: .fill)
         .padding(4)
-        .background(Color.background)
-        .cornerRadius(8.0)
-        .shadow(color: .gray, radius: 3.0, x: 0.0, y: 0.0)
+        .cornerRadius(16)
     }
     
 }
