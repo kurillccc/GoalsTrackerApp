@@ -7,21 +7,80 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 extension PersistenceController {
     
     static func addPreviewData(context: NSManagedObjectContext) {
-        addGoal(icon: "🏃‍♂️", title: "Jogging", position: 0, isCompletedToday: true, context: context)
-        addGoal(icon: "🧑‍💻", title: "Project", position: 1, isCompletedToday: false, context: context)
-        addGoal(icon: "📚", title: "Reading", position: 2, isCompletedToday: false, context: context)
-        addGoal(icon: "🍏", title: "Eat Healthy", position: 3, isCompletedToday: true, context: context)
-        addGoal(icon: "🍩", title: "Avoid Sugar", position: 4, isCompletedToday: true, context: context)
+        addGoal(
+            icon: "🏃‍♂️",
+            color: .blue,
+            title: "Jogging",
+            position: 0,
+            isCompletedToday: true,
+            context: context
+        )
+        
+        addGoal(
+            icon: "📚",
+            color: .green,
+            title: "Reading",
+            position: 2,
+            isCompletedToday: false,
+            context: context
+        )
+        
+        addGoal(
+            icon: "🍏",
+            color: .orange,
+            title: "Eat Healthy",
+            position: 3,
+            isCompletedToday: true,
+            context: context
+        )
+        
+        addGoal(
+            icon: "🍩",
+            color: .pink,
+            title: "Avoid Sugar",
+            position: 4,
+            isCompletedToday: true,
+            context: context
+        )
+        
+        addGoal(
+            icon: "💪",
+            color: .red,
+            title: "Workout",
+            position: 5,
+            isCompletedToday: false,
+            context: context
+        )
+        
+        addGoal(
+            icon: "💧",
+            color: .blue,
+            title: "Drink Water",
+            position: 6,
+            isCompletedToday: true,
+            context: context
+        )
+        
+        addGoal(
+            icon: "😴",
+            color: .green,
+            title: "Sleep 8 hours",
+            position: 7,
+            isCompletedToday: false,
+            context: context
+        )
     }
     
-    static func addGoal(icon: String, title: String, position: Int16, isCompletedToday: Bool, context: NSManagedObjectContext) {
+    static func addGoal(icon: String, color: CustomColor, title: String, position: Int16, isCompletedToday: Bool, context: NSManagedObjectContext) {
         let goal = Goal(context: context)
         goal.id = UUID()
         goal.icon = icon
+        goal.color = color.rawValue
         goal.title = title
         goal.position = position
         goal.addedOn = Date()

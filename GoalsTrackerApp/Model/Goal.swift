@@ -7,12 +7,14 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 @objc(Goal)
 final class Goal: NSManagedObject {
     
     @NSManaged public var id: UUID
     @NSManaged public var icon: String
+    @NSManaged public var color: String
     @NSManaged public var title: String
     @NSManaged public var position: Int16
     @NSManaged public var addedOn: Date
@@ -36,3 +38,12 @@ extension Goal {
 
 // MARK: - Identifiable
 extension Goal: Identifiable { }
+
+// MARK: - Color
+extension Goal {
+    
+    var customColor: CustomColor {
+        CustomColor(rawValue: color) ?? .blue
+    }
+    
+}

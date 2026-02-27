@@ -17,17 +17,29 @@ struct GoalsView: View {
         animation: .default
     ) private var goals: FetchedResults<Goal>
     
+    @State private var searchText = ""
+    
+    var filteredGoals: [Goal] {
+        if searchText.isEmpty {
+            return Array(goals)
+        } else {
+            return goals.filter { goal in
+                goal.title.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
     @State private var showingAddNew = false
     
     private var columns: [GridItem] {
-        [GridItem(.adaptive(minimum: 100, maximum: 160), spacing: 10.0)]
+        [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 10.0)]
     }
     
     private var addNewButton: some View {
         Button {
             showingAddNew = true
         } label: {
-            Text("New")
+            Image(systemName: "plus")
         }
     }
         
@@ -36,21 +48,22 @@ struct GoalsView: View {
         NavigationView {
             Group {
                 if goals.isEmpty {
-                    Text("No goals yet!")
+                    GoalsEmptyView()
+                } else if filteredGoals.isEmpty && !searchText.isEmpty {
+                    ContentUnavailableView("Ничего не найдено", systemImage: "magnifyingglass")
+                        .padding()
                 } else {
-                    ScrollView {
-                        LazyVGrid(columns: columns, spacing: 10.0) {
-                            ForEach(goals) { goal in
-                                GoalsItemView(goal: goal)
-                            }
-                        }
-                        .padding(10)
-                    }
+                    GoalsGridView(goals: filteredGoals, columns: columns)
                 }
             }
-            .navigationTitle(Text("Goals"))
+            .navigationTitle(Text("Цели"))
+            .searchable(
+                text: $searchText,
+                placement: .navigationBarDrawer(displayMode: .always),
+                prompt: "Поиск"
+            )
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     addNewButton
                 }
             }

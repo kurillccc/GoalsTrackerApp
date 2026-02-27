@@ -21,7 +21,7 @@ struct OnboardingPageView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
 
-            LinearGradient(colors: [.white.opacity(0.25), .black.opacity(0.1)], startPoint: .bottom, endPoint: .top)
+            LinearGradient(colors: [.white.opacity(0.7), .black.opacity(0.1)], startPoint: .bottom, endPoint: .top)
                 .ignoresSafeArea()
 
             VStack() {

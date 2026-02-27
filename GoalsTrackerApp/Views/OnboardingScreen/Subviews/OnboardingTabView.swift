@@ -27,9 +27,9 @@ struct OnboardingTabView: View {
             )
             .tag(1)
         }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .ignoresSafeArea()
         .disabled(selection == 0)
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
     
 }
