@@ -13,10 +13,13 @@ struct GoalsTrackerAppApp: App {
     
     // MARK: - Properties
     let persistenceController = PersistenceController.shared
+    @AppStorage("hasOnboarded") private var hasOnboarded: Bool = false
     
     // MARK: - Init
     init() {
 #if DEBUG
+        // UserDefaults.standard.set(false, forKey: "hasOnboarded")
+        
         let context = persistenceController.container.viewContext
         let fetch = NSFetchRequest<Goal>(entityName: "Goal")
         if (try? context.count(for: fetch)) == 0 {
@@ -29,8 +32,15 @@ struct GoalsTrackerAppApp: App {
     // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            GoalsView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            Group {
+                if hasOnboarded {
+                    GoalsView()
+                        .transition(.opacity)
+                } else {
+                    OnboardingView()
+                }
+            }
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
     
