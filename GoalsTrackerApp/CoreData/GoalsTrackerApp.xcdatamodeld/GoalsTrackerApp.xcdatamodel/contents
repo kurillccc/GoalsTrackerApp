@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24512" systemVersion="25C56" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Goal" representedClassName=".Goal" syncable="YES">
         <attribute name="addedOn" attributeType="Date" defaultDateTimeInterval="793564740" usesScalarValueType="NO"/>
+        <attribute name="color" attributeType="String" valueTransformerName="" defaultValueString="yellow" customClassName=".UIColor"/>
         <attribute name="icon" attributeType="String" defaultValueString=""/>
         <attribute name="id" attributeType="UUID" defaultValueString="DE4B273B-F203-4A5F-B1AE-26AE51E9B9D1" usesScalarValueType="NO"/>
         <attribute name="isRemoved" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
