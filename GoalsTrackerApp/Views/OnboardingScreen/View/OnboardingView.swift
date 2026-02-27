@@ -26,6 +26,17 @@ struct OnboardingView: View {
                 VStack {
                     Spacer()
                     
+                    HStack(spacing: 8) {
+                        ForEach(0..<2, id: \.self) { index in
+                            Circle()
+                                .fill(index == currentPage ? Color.black : Color.black.opacity(0.3))
+                                .frame(width: 8, height: 8)
+                                .scaleEffect(index == currentPage ? 1.2 : 1.0)
+                                .animation(.spring(), value: currentPage)
+                        }
+                    }
+                    .padding(.bottom, 60)
+                    
                     Button {
                         withAnimation(.easeInOut(duration: 0.4)) {
                             if currentPage < 1 {
