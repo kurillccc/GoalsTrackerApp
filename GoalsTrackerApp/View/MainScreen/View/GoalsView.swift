@@ -18,7 +18,9 @@ struct GoalsView: View {
     ) private var goals: FetchedResults<Goal>
     
     @State private var searchText = ""
+    @State private var showingAddNew = false
     
+    // MARK: - Computed Properties
     var filteredGoals: [Goal] {
         if searchText.isEmpty {
             return Array(goals)
@@ -29,12 +31,11 @@ struct GoalsView: View {
         }
     }
     
-    @State private var showingAddNew = false
-    
     private var columns: [GridItem] {
         [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 10.0)]
     }
     
+    // MARK: - View Components
     private var addNewButton: some View {
         Button {
             showingAddNew = true
@@ -66,6 +67,9 @@ struct GoalsView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     addNewButton
                 }
+            }
+            .sheet(isPresented: $showingAddNew) {
+                AddNewGoalView()
             }
         }
     }
