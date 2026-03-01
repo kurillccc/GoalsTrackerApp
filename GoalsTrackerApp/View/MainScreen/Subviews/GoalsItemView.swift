@@ -23,7 +23,7 @@ struct GoalsItemView: View {
                 
                 Spacer()
                 
-                VStack(alignment: .leading, spacing: 40) {
+                VStack(alignment: .leading) {
                     ZStack {
                         Circle()
                             .fill(Color.white.opacity(0.3))
@@ -33,15 +33,18 @@ struct GoalsItemView: View {
                             .frame(alignment: .center)
                             .accessibilityLabel(Text(goal.title))
                     }
+                    
+                    Spacer()
 
                     Text(goal.title)
                         .font(.footnote.weight(.semibold))
                         .foregroundColor(.white)
-                        .lineLimit(2)
+                        .lineLimit(3)
                         .minimumScaleFactor(0.8)
                         .multilineTextAlignment(.leading)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 10)
                 .padding(.leading)
             }
             
@@ -63,11 +66,11 @@ struct GoalsItemView: View {
                             Circle()
                                 .fill(goal.customColor.color)
                         )
-                        .accessibilityLabel("Добавить день")
                 }
             }
             .frame(maxWidth: .infinity)
-            .padding(.horizontal, 4)
+            .padding(.horizontal, 10)
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .aspectRatio(1.2, contentMode: .fill)
