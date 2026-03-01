@@ -20,13 +20,13 @@ final class AddNewGoalViewModel: ObservableObject {
     
     // MARK: - Available Options
     let icons = GoalIcon.all
-    let colors = CustomColor.allCases
+    let colors = CustomColor.allCases.filter { $0 != .clear }
     
     // MARK: - Init
     init(dataManager: DataManagerProtocol = DataManager.shared) {
         self.dataManager = dataManager
-        self.icon = "⚡️"
-        self.color = CustomColor.black
+        self.icon = ""
+        self.color = CustomColor.clear
     }
     
     // MARK: - Computed Properties
@@ -38,9 +38,15 @@ final class AddNewGoalViewModel: ObservableObject {
     func save(completion: (_ success: Bool) -> Void) {
         var success = false
         defer { completion(success) }
-        guard !title.isEmpty else { return }
+        guard !title.isEmpty, icon != "", color != .clear else { return }
         dataManager.createGoal(title: title, icon: icon, color: color)
         success = true
+    }
+    
+    func validate() -> Bool {
+        !title.trimmingCharacters(in: .whitespaces).isEmpty &&
+        !icon.isEmpty &&
+        color != .clear
     }
     
 }

@@ -56,6 +56,7 @@ struct AddButtonView: View {
                         .foregroundStyle(.black)
                 )
         }
+        .disabled(!vm.validate())
     }
     
 }
