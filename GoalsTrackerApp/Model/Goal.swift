@@ -43,7 +43,7 @@ extension Goal: Identifiable { }
 extension Goal {
     
     var customColor: CustomColor {
-        CustomColor(rawValue: color) ?? .blue
+        CustomColor(rawValue: color) ?? .clear
     }
     
 }

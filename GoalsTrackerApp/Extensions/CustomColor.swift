@@ -15,7 +15,8 @@ enum CustomColor: String, CaseIterable {
     case orange
     case pink
     case red
-    case black
+    case gray
+    case clear
     
     var uiColor: UIColor {
         switch self {
@@ -24,7 +25,8 @@ enum CustomColor: String, CaseIterable {
         case .orange: return UIColor(named: "bgOrange") ?? .systemOrange
         case .pink: return UIColor(named: "bgPink") ?? .systemPink
         case .red: return UIColor(named: "bgRed") ?? .systemRed
-        case .black: return UIColor(named: "bgBlack") ?? .black
+        case .gray: return UIColor(named: "bgGray") ?? .gray
+        case .clear: return .clear
         }
     }
     
