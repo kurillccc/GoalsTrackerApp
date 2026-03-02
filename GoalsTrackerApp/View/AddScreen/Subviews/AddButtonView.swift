@@ -54,6 +54,7 @@ struct AddButtonView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundStyle(.black)
+                        .opacity(vm.validate() ? 1 : 0.5)
                 )
         }
         .disabled(!vm.validate())
