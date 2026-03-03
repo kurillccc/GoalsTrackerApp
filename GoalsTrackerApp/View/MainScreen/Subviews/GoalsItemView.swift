@@ -10,6 +10,8 @@ import CoreData
 
 struct GoalsItemView: View {
     
+    @ObservedObject var vm: GoalsViewModel
+    
     // MARK: - Properties
     @ObservedObject var goal: Goal
     
@@ -57,15 +59,33 @@ struct GoalsItemView: View {
                                 
                 Button {
                     
+                    if goal.isCompletedToday {
+                        vm.unmarkAsDone(goal)
+                    } else {
+                        vm.markAsDone(goal)
+                    }
                 } label: {
-                    Image(systemName: "plus")
-                        .font(.system(size: 14, weight: .bold))
-                        .foregroundColor(.white)
-                        .frame(width: 34, height: 34)
-                        .background(
-                            Circle()
-                                .fill(goal.customColor.color)
-                        )
+                    if !goal.isCompletedToday
+                    {
+                        Image(systemName: "plus")
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(.white)
+                            .frame(width: 34, height: 34)
+                            .background(
+                                Circle()
+                                    .fill(goal.customColor.color)
+                            )
+                    } else {
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(.white)
+                            .frame(width: 34, height: 34)
+                            .background(
+                                Circle()
+                                    .fill(goal.customColor.color)
+                                    .opacity(0.3)
+                            )
+                    }
                 }
             }
             .frame(maxWidth: .infinity)
