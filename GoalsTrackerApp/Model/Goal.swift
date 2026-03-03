@@ -39,6 +39,20 @@ extension Goal {
 // MARK: - Identifiable
 extension Goal: Identifiable { }
 
+// MARK: - Record status
+extension Goal {
+    
+    var lastRecord: GoalRecord? {
+        records?.sorted{ $0.date > $1.date }.first
+    }
+    
+    var isCompletedToday: Bool {
+        guard let lastRecord = lastRecord else { return false }
+        return Calendar.current.isDateInToday(lastRecord.date)
+    }
+    
+}
+
 // MARK: - Color
 extension Goal {
     

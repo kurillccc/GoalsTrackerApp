@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-typealias DataManagerProtocol = GoalDataManagerProtocol & DataManager+GoalRecord
+typealias DataManagerProtocol = GoalDataManagerProtocol & GoalRecordDataManagerProtocol
 
 final class DataManager {
     
