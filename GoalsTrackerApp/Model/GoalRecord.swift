@@ -20,7 +20,7 @@ final class GoalRecord: NSManagedObject {
 extension GoalRecord {
     
     class func fetchRequest() -> NSFetchRequest<GoalRecord> {
-        let request = NSFetchRequest<GoalRecord>(entityName: "Goal")
+        let request = NSFetchRequest<GoalRecord>(entityName: "GoalRecord")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \GoalRecord.date, ascending: false)]
         return request
     }

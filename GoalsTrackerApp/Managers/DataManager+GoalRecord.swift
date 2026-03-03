@@ -61,7 +61,9 @@ extension DataManager: GoalRecordDataManagerProtocol {
             
             let calendar = Calendar.current
             let startDate = calendar.startOfDay(for: date)
-            let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)
+            guard let endDate = calendar.date(byAdding: .day, value: 1, to: startDate) else {
+                fatalError("Failed to create end date for range")
+            }
             
             predicates.append(
                 NSPredicate(
