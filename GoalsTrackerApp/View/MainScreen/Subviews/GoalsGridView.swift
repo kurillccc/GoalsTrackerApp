@@ -11,6 +11,7 @@ import CoreData
 struct GoalsGridView: View {
     
     // MARK: - Properties
+    @ObservedObject var vm: GoalsViewModel
     let goals: [Goal]
     let columns: [GridItem]
     
@@ -19,7 +20,7 @@ struct GoalsGridView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 10.0) {
                 ForEach(goals) { goal in
-                    GoalsItemView(goal: goal)
+                    GoalsItemView(vm: vm, goal: goal)
                 }
             }
             .padding(10)
