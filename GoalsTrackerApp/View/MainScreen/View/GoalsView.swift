@@ -11,6 +11,7 @@ import CoreData
 struct GoalsView: View {
     
     // MARK: - Properties
+    @StateObject private var viewModel = GoalsViewModel()
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Goal.position, ascending: true)],
         predicate: NSPredicate(format: "isRemoved == false"),
@@ -25,9 +26,7 @@ struct GoalsView: View {
         if searchText.isEmpty {
             return Array(goals)
         } else {
-            return goals.filter { goal in
-                goal.title.localizedCaseInsensitiveContains(searchText)
-            }
+            return goals.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
@@ -43,7 +42,7 @@ struct GoalsView: View {
             Image(systemName: "plus")
         }
     }
-        
+    
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -54,10 +53,10 @@ struct GoalsView: View {
                     ContentUnavailableView("Ничего не найдено", systemImage: "magnifyingglass")
                         .padding()
                 } else {
-                    GoalsGridView(goals: filteredGoals, columns: columns)
+                    GoalsGridView(vm: viewModel, goals: filteredGoals, columns: columns)
                 }
             }
-            .navigationTitle(Text("Цели"))
+            .navigationTitle("Цели")
             .searchable(
                 text: $searchText,
                 placement: .navigationBarDrawer(displayMode: .always),
@@ -70,6 +69,7 @@ struct GoalsView: View {
             }
             .sheet(isPresented: $showingAddNew) {
                 AddNewGoalView()
+                    .presentationDragIndicator(.visible)
             }
         }
     }
