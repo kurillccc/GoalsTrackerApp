@@ -49,6 +49,9 @@ struct GoalsItemView: View {
                 .padding(.vertical, 10)
                 .padding(.leading)
             }
+            .contextMenu {
+                ContextMenuItem(goal: goal, vm: vm)
+            }
             
             HStack {
                 Text("0 дней")
