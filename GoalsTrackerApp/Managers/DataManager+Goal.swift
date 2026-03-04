@@ -13,6 +13,7 @@ protocol GoalDataManagerProtocol {
     
     func createGoal(title: String, icon: String, color: CustomColor)
     func readGoal(id: UUID) -> Goal?
+    func deleteGoal(id: UUID)
     
 }
 
@@ -68,6 +69,22 @@ extension DataManager: GoalDataManagerProtocol {
             }
         }
         return goal
+    }
+    
+    func deleteGoal(id: UUID) {
+        context.performAndWait {
+            let request: NSFetchRequest<Goal> = Goal.fetchRequest()
+            request.predicate = NSPredicate(format: "id = %@", argumentArray: [id])
+            request.fetchLimit = 1
+            do {
+                if let goal = try context.fetch(request).first {
+                    context.delete(goal)
+                    try context.save()
+                }
+            } catch {
+                fatalError("error: \(error)")
+            }
+        }
     }
     
 }
