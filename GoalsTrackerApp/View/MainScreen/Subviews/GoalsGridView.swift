@@ -21,6 +21,9 @@ struct GoalsGridView: View {
             LazyVGrid(columns: columns, spacing: 10.0) {
                 ForEach(goals) { goal in
                     GoalsItemView(vm: vm, goal: goal)
+                        .contextMenu {
+                            ContextMenuItem(goal: goal, vm: vm)
+                        }
                 }
             }
             .padding(10)
