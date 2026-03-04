@@ -10,10 +10,15 @@ import CoreData
 
 struct GoalsItemView: View {
     
-    @ObservedObject var vm: GoalsViewModel
-    
     // MARK: - Properties
+    @ObservedObject var vm: GoalsViewModel
     @ObservedObject var goal: Goal
+    
+    // MARK: - Computed Properties
+    private var daysCount: Int {
+        goal.records?.count ?? 0
+    }
+    
     
     // MARK: - Body
     var body: some View {
@@ -37,7 +42,7 @@ struct GoalsItemView: View {
                     }
                     
                     Spacer()
-
+                    
                     Text(goal.title)
                         .font(.footnote.weight(.semibold))
                         .foregroundColor(.white)
@@ -51,12 +56,12 @@ struct GoalsItemView: View {
             }
             
             HStack {
-                Text("0 дней")
+                Text("\(daysCount) дней")
                     .font(.footnote.weight(.semibold))
                     .multilineTextAlignment(.leading)
                 
                 Spacer()
-                                
+                
                 Button {
                     
                     if goal.isCompletedToday {
@@ -90,7 +95,7 @@ struct GoalsItemView: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 10)
-
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .aspectRatio(1.2, contentMode: .fill)
