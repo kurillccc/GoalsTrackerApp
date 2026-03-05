@@ -10,6 +10,12 @@ internal import Combine
 
 final class GoalsViewModel: ObservableObject {
     
+    @Published var searchText: String = ""
+    @Published var showingAddNew: Bool = false
+    @Published var goals: [Goal] = []
+    @Published var editingGoal: Goal? = nil
+    @Published var showingEdit: Bool = false
+    
     // MARK: - Data Manager
     private let dataManager: DataManagerProtocol
     
@@ -25,6 +31,14 @@ final class GoalsViewModel: ObservableObject {
     
     func unmarkAsDone(_ goal: Goal) {
         dataManager.deleteGoalRecord(for: goal.id, date: Date())
+    }
+    
+    func editGoal(_ goal: Goal) {
+        //
+    }
+
+    func deleteGoal(_ goal: Goal) {
+        dataManager.deleteGoal(id: goal.id)
     }
     
 }
