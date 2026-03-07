@@ -13,7 +13,10 @@ struct GoalsView: View {
     // MARK: - Properties
     @StateObject private var viewModel = GoalsViewModel()
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Goal.position, ascending: true)],
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Goal.isPinned, ascending: false),
+            NSSortDescriptor(keyPath: \Goal.position, ascending: true)
+        ],
         predicate: NSPredicate(format: "isRemoved == false"),
         animation: .default
     ) private var goals: FetchedResults<Goal>

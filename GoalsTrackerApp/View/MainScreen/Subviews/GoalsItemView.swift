@@ -18,7 +18,7 @@ struct GoalsItemView: View {
     // MARK: - Body
     var body: some View {
         VStack {
-            ZStack {
+            ZStack(alignment: .topTrailing) {
                 Rectangle()
                     .fill(goal.customColor.color)
                     .cornerRadius(16)
@@ -37,7 +37,7 @@ struct GoalsItemView: View {
                     }
                     
                     Spacer()
-
+                    
                     Text(goal.title)
                         .font(.footnote.weight(.semibold))
                         .foregroundColor(.white)
@@ -48,6 +48,12 @@ struct GoalsItemView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.vertical, 10)
                 .padding(.leading)
+                
+                if goal.isPinned {
+                    Image(systemName: "pin.fill")
+                        .foregroundStyle(.white)
+                        .padding(10)
+                }
             }
             .contextMenu {
                 ContextMenuItem(goal: goal, vm: vm)
@@ -59,9 +65,8 @@ struct GoalsItemView: View {
                     .multilineTextAlignment(.leading)
                 
                 Spacer()
-                                
+                
                 Button {
-                    
                     if goal.isCompletedToday {
                         vm.unmarkAsDone(goal)
                     } else {
@@ -93,7 +98,7 @@ struct GoalsItemView: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 10)
-
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .aspectRatio(1.2, contentMode: .fill)
