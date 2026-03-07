@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct RootPagerView: View {
+    
+    // MARK: - Properties
     @State private var selection = 0
 
+    // MARK: - Body
     var body: some View {
         TabView(selection: $selection) {
             GoalsView()
@@ -20,6 +23,10 @@ struct RootPagerView: View {
                 .tag(1)
                 .tabItem { Label("Статистика", systemImage: "hare.fill") }
         }
+        .background(
+            Color.clear
+                .ignoresSafeArea(edges: .bottom)
+        )
     }
     
 }
