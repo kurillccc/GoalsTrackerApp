@@ -27,6 +27,8 @@ struct PersistenceController {
             goal.addedOn = Date()
             goal.modifiedOn = Date()
             goal.isRemoved = false
+            goal.isPinned = false
+            goal.originalPosition = 0
         }
         
         do {

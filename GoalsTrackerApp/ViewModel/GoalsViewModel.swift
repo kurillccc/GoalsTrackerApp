@@ -33,8 +33,8 @@ final class GoalsViewModel: ObservableObject {
         dataManager.deleteGoalRecord(for: goal.id, date: Date())
     }
     
-    func editGoal(_ goal: Goal) {
-        //
+    func pinGoal(_ goal: Goal) {
+        dataManager.pinGoal(id: goal.id)
     }
 
     func deleteGoal(_ goal: Goal) {

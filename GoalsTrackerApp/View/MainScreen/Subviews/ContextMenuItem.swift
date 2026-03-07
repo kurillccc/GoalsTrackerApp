@@ -9,14 +9,17 @@ import SwiftUI
 
 struct ContextMenuItem: View {
     
-    let goal: Goal
-    let vm: GoalsViewModel
+    @ObservedObject var goal: Goal
+    @ObservedObject var vm: GoalsViewModel
     
     var body: some View {
         Button {
-            vm.editGoal(goal)
+            vm.pinGoal(goal)
         } label: {
-            Label("Изменить", systemImage: "pencil")
+            Label(
+                (goal.isPinned ? "Открепить" : "Закрепить"),
+                systemImage: "pin"
+            )
         }
         
         Button(role: .destructive) {
