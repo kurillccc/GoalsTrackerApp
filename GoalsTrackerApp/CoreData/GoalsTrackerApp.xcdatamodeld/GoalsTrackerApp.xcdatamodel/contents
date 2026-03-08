@@ -5,8 +5,10 @@
         <attribute name="color" attributeType="String" valueTransformerName="" defaultValueString="clear" customClassName=".UIColor"/>
         <attribute name="icon" attributeType="String" defaultValueString=""/>
         <attribute name="id" attributeType="UUID" defaultValueString="DE4B273B-F203-4A5F-B1AE-26AE51E9B9D1" usesScalarValueType="NO"/>
+        <attribute name="isPinned" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="isRemoved" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="modifiedOn" attributeType="Date" defaultDateTimeInterval="793564740" usesScalarValueType="NO"/>
+        <attribute name="originalPosition" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="position" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String" defaultValueString=""/>
         <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GoalRecord" inverseName="goal" inverseEntity="GoalRecord"/>

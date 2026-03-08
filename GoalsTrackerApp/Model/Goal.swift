@@ -17,9 +17,11 @@ final class Goal: NSManagedObject {
     @NSManaged public var color: String
     @NSManaged public var title: String
     @NSManaged public var position: Int16
+    @NSManaged public var originalPosition: Int16
     @NSManaged public var addedOn: Date
     @NSManaged public var modifiedOn: Date
     @NSManaged public var isRemoved: Bool
+    @NSManaged public var isPinned: Bool
     @NSManaged public var records: Set<GoalRecord>?
     
 }
