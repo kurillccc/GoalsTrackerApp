@@ -18,15 +18,15 @@ struct AddNewGoalView: View {
         NavigationView {
             List {
                 Section {
-                    TextField("Введите название цели", text: $vm.title)
+                    TextField("goalsNamePlaceholder", text: $vm.title)
                 }
                 
-                Section(header: Text("Эмодзи")) {
+                Section(header: Text("categoryEmoji")) {
                     SelectEmojiView(vm: vm)
                 }
                 
                 
-                Section(header: Text("Цвета")) {
+                Section(header: Text("categoryColor")) {
                     SelectColorView(vm: vm)
                 }
             }

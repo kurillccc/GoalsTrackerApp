@@ -53,17 +53,17 @@ struct GoalsView: View {
                 if goals.isEmpty {
                     GoalsEmptyView()
                 } else if filteredGoals.isEmpty && !searchText.isEmpty {
-                    ContentUnavailableView("Ничего не найдено", systemImage: "magnifyingglass")
+                    ContentUnavailableView("emptySearchGoal", systemImage: "magnifyingglass")
                         .padding()
                 } else {
                     GoalsGridView(vm: viewModel, goals: filteredGoals, columns: columns)
                 }
             }
-            .navigationTitle("Цели")
+            .navigationTitle("goalsTitle")
             .searchable(
                 text: $searchText,
                 placement: .navigationBarDrawer(displayMode: .always),
-                prompt: "Поиск"
+                prompt: "searchGoal"
             )
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

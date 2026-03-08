@@ -18,7 +18,7 @@ struct GoalsTrackerAppApp: App {
     // MARK: - Init
     init() {
 #if DEBUG
-        // UserDefaults.standard.set(false, forKey: "hasOnboarded")
+        UserDefaults.standard.set(false, forKey: "hasOnboarded")
         
         let context = persistenceController.container.viewContext
         let fetch = NSFetchRequest<Goal>(entityName: "Goal")

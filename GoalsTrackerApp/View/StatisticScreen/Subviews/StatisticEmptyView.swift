@@ -16,7 +16,7 @@ struct StatisticEmptyView: View {
                 .font(.system(size: 100))
                 .saturation(0)
                 
-            Text("Анализировать пока нечего")
+            Text("emptyStatsStubViewText")
         }
     }
     

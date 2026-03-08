@@ -17,11 +17,11 @@ struct RootPagerView: View {
         TabView(selection: $selection) {
             GoalsView()
                 .tag(0)
-                .tabItem { Label("Цели", systemImage: "record.circle.fill") }
+                .tabItem { Label("goalsTabTitle", systemImage: "record.circle.fill") }
 
             StatisticView()
                 .tag(1)
-                .tabItem { Label("Статистика", systemImage: "hare.fill") }
+                .tabItem { Label("statisticsTabTitle", systemImage: "hare.fill") }
         }
         .background(
             Color.clear

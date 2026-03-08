@@ -24,10 +24,22 @@ struct StatisticView: View {
                     StatisticEmptyView()
                 } else {
                     VStack(alignment: .center, spacing: 20) {
-                        StatisticItiemView(countOfDays: viewModel.bestStreakDays, title: "Лучший период")
-                        StatisticItiemView(countOfDays: viewModel.perfectDays, title: "Идеальные дни")
-                        StatisticItiemView(countOfDays: viewModel.trackersCompleted, title: "Трекеров завершено")
-                        StatisticItiemView(countOfDays: viewModel.averageValue, title: "Среднее значение")
+                        StatisticItiemView(
+                            countOfDays: viewModel.bestStreakDays,
+                            title: LocalizedStringKey("bestStreakDays")
+                        )
+                        StatisticItiemView(
+                            countOfDays: viewModel.perfectDays,
+                            title: LocalizedStringKey("perfectDays")
+                        )
+                        StatisticItiemView(
+                            countOfDays: viewModel.trackersCompleted,
+                            title: LocalizedStringKey("completedGoalsStats")
+                        )
+                        StatisticItiemView(
+                            countOfDays: viewModel.averageValue,
+                            title: LocalizedStringKey("averageValue")
+                        )
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .padding(.top, 30)
@@ -39,7 +51,7 @@ struct StatisticView: View {
                     await vm.load()
                 }
             }
-            .navigationTitle("Статистика")
+            .navigationTitle("statsTitle")
         }
     }
     
