@@ -14,6 +14,7 @@ protocol GoalRecordDataManagerProtocol {
     func createGoalRecord(for goalID: UUID, date: Date)
     func readGoalRecord(for goalID: UUID, date: Date) -> GoalRecord?
     func deleteGoalRecord(for goalID: UUID, date: Date)
+    func readAllGoalRecords() -> [GoalRecord]
     
 }
 
@@ -106,6 +107,21 @@ extension DataManager: GoalRecordDataManagerProtocol {
                 fatalError("error: \(error)")
             }
         }
+    }
+    
+    func readAllGoalRecords() -> [GoalRecord] {
+        var results: [GoalRecord] = []
+        context.performAndWait {
+            let request: NSFetchRequest<GoalRecord> = GoalRecord.fetchRequest()
+            let sort = NSSortDescriptor(key: #keyPath(GoalRecord.date), ascending: true)
+            request.sortDescriptors = [sort]
+            do {
+                results = try context.fetch(request)
+            } catch {
+                fatalError("error: \(error)")
+            }
+        }
+        return results
     }
     
 }

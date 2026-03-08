@@ -34,7 +34,7 @@ struct GoalsTrackerAppApp: App {
         WindowGroup {
             Group {
                 if hasOnboarded {
-                    GoalsView()
+                    RootPagerView()
                         .transition(.opacity)
                 } else {
                     OnboardingView()
