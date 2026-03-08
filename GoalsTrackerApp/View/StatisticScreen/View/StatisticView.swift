@@ -7,15 +7,20 @@
 
 import SwiftUI
 
+@MainActor
+private protocol _StatisticViewModelLoadable: AnyObject {
+    func load() async
+}
+
 struct StatisticView: View {
     
-    @StateObject private var viewModel = StatusViewModel()
+    @StateObject private var viewModel: StatisticViewModel = .init()
     
     // MARK: - Body
     var body: some View {
         NavigationStack {
             VStack {
-                if false {
+                if !viewModel.hasAnyData {
                     StatisticEmptyView()
                 } else {
                     VStack(alignment: .center, spacing: 20) {
@@ -30,7 +35,9 @@ struct StatisticView: View {
                 }
             }
             .task {
-                await viewModel.load()
+                if let vm = viewModel as? any _StatisticViewModelLoadable {
+                    await vm.load()
+                }
             }
             .navigationTitle("Статистика")
         }

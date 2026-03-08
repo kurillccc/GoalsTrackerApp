@@ -19,7 +19,7 @@ struct RootPagerView: View {
                 .tag(0)
                 .tabItem { Label("Цели", systemImage: "record.circle.fill") }
 
-            StatusView()
+            StatisticView()
                 .tag(1)
                 .tabItem { Label("Статистика", systemImage: "hare.fill") }
         }

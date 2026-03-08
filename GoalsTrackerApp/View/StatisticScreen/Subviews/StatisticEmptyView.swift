@@ -21,7 +21,3 @@ struct StatisticEmptyView: View {
     }
     
 }
-
-#Preview {
-    StatusEmptyView()
-}
