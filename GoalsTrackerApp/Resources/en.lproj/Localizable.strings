@@ -1,0 +1,32 @@
+/*
+  Localizable.strings
+  GoalsTrackerApp
+
+  Created by Кирилл on 08.03.2026.
+  
+*/
+
+"goalsTitle" = "Goals";
+"emptyGoalsStubViewText" = "What shall we track?";
+"searchGoal" = "Search";
+"emptySearchGoal" = "Nothing found";
+"dateFormat" = "EEEE";
+"cancelButtonTitle" = "Cancel";
+"creationButtonTitle" = "Create";
+"onboardingTitleOne" = "Your goals — your rules";
+"onboardingTitleTwo" = "Want to track TV shows, sleep, or memes? No problem.";
+"onboardingButtonTitle" = "Let's start!";
+"goalsTabTitle" = "Goals";
+"statisticsTabTitle" = "Statistics";
+"goalsNamePlaceholder" = "Enter goal name";
+"categoryEmoji" = "Emoji";
+"categoryColor" = "Color";
+"statsTitle" = "Statistics";
+"emptyStatsStubViewText" = "Nothing to analyze yet";
+"bestStreakDays" = "Best streak";
+"perfectDays" = "Perfect days";
+"completedGoalsStats" = "Trackers completed";
+"averageValue" = "Average value";
+"contextActionPin" = "Pin";
+"contextActionUnpin" = "Unpin";
+"contextActionDelete" = "Delete";

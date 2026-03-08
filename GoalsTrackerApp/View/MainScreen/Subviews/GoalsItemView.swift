@@ -65,9 +65,14 @@ struct GoalsItemView: View {
             }
             
             HStack {
-                Text("\(daysCount) дней")
-                    .font(.footnote.weight(.semibold))
-                    .multilineTextAlignment(.leading)
+                Text(
+                    String.localizedStringWithFormat(
+                        NSLocalizedString("days_count", comment: ""),
+                        daysCount
+                    )
+                )
+                .font(.footnote.weight(.semibold))
+                .multilineTextAlignment(.leading)
                 
                 Spacer()
                 

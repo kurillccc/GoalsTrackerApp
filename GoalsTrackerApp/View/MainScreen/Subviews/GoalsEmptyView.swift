@@ -17,7 +17,7 @@ struct GoalsEmptyView: View {
                 .foregroundColor(Color(.systemGray5))
                 .fontWeight(.bold)
                 
-            Text("Что будем отслеживать?")
+            Text("emptyGoalsStubViewText")
         }
     }
     

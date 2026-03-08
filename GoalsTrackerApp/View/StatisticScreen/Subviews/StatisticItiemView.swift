@@ -11,7 +11,7 @@ struct StatisticItiemView: View {
     
     // MARK: - Placeholder Data
     var countOfDays: Int = 12
-    var title: String = "Дней подряд"
+    var title: LocalizedStringKey
     
     // MARK: - Body
     var body: some View {

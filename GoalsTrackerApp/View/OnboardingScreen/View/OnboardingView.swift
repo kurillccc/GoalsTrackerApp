@@ -46,7 +46,7 @@ struct OnboardingView: View {
                             }
                         }
                     } label: {
-                        Text("Приступим!")
+                        Text("onboardingButtonTitle")
                             .font(.system(size: 24, weight: .semibold))
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 16)
