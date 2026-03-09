@@ -18,14 +18,14 @@ struct GoalsTrackerAppApp: App {
     // MARK: - Init
     init() {
 #if DEBUG
-        UserDefaults.standard.set(false, forKey: "hasOnboarded")
+        // UserDefaults.standard.set(false, forKey: "hasOnboarded")
         
-        let context = persistenceController.container.viewContext
-        let fetch = NSFetchRequest<Goal>(entityName: "Goal")
-        if (try? context.count(for: fetch)) == 0 {
-            PersistenceController.addPreviewData(context: context)
-            try? context.save()
-        }
+//        let context = persistenceController.container.viewContext
+//        let fetch = NSFetchRequest<Goal>(entityName: "Goal")
+//        if (try? context.count(for: fetch)) == 0 {
+//            PersistenceController.addPreviewData(context: context)
+//            try? context.save()
+//        }
 #endif
     }
     
