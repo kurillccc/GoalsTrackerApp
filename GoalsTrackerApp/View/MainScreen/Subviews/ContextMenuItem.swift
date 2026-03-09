@@ -17,7 +17,7 @@ struct ContextMenuItem: View {
             vm.pinGoal(goal)
         } label: {
             Label(
-                (goal.isPinned ? "Открепить" : "Закрепить"),
+                (goal.isPinned ? "contextActionUnpin" : "contextActionPin"),
                 systemImage: "pin"
             )
         }
@@ -25,7 +25,7 @@ struct ContextMenuItem: View {
         Button(role: .destructive) {
             vm.deleteGoal(goal)
         } label: {
-            Label("Удалить", systemImage: "trash")
+            Label("contextActionDelete", systemImage: "trash")
         }
     }
     

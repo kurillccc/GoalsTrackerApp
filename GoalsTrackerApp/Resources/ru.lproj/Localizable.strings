@@ -1,0 +1,32 @@
+/*
+  Localizable.strings
+  GoalsTrackerApp
+
+  Created by Кирилл on 08.03.2026.
+  
+*/
+
+"goalsTitle" = "Цели";
+"emptyGoalsStubViewText" = "Что будем отслеживать?";
+"searchGoal" = "Поиск";
+"emptySearchGoal" = "Ничего не найдено";
+"dateFormat" = "EEEE";
+"cancelButtonTitle" = "Отменить";
+"creationButtonTitle" = "Создать";
+"onboardingTitleOne" = "Ваши цели — ваши правила";
+"onboardingTitleTwo" = "Хочешь отслеживать сериалы, сон или мемы? Без проблем.";
+"onboardingButtonTitle" = "Приступим!";
+"goalsTabTitle" = "Цели";
+"statisticsTabTitle" = "Статистика";
+"goalsNamePlaceholder" = "Ведите название цели";
+"categoryEmoji" = "Эмоджи";
+"categoryColor" = "Цвет";
+"statsTitle" = "Cтатистика";
+"emptyStatsStubViewText" = "Анализировать пока нечего";
+"bestStreakDays" = "Лучший период";
+"perfectDays" = "Идеальные дни";
+"completedGoalsStats" = "Трекеров завершено";
+"averageValue" = "Среднее значение";
+"contextActionPin" = "Закрепить";
+"contextActionUnpin" = "Открепить";
+"contextActionDelete" = "Удалить";

@@ -16,13 +16,13 @@ struct OnboardingTabView: View {
     var body: some View {
         TabView(selection: $selection) {
             OnboardingPageView(
-                title: "Ваши цели — ваши правила",
+                title: "onboardingTitleOne",
                 backgroundImageName: "onboarding_bg_1"
             )
             .tag(0)
             
             OnboardingPageView(
-                title: "Хочешь отслеживать сериалы, сон или мемы? Без проблем.",
+                title: "onboardingTitleTwo",
                 backgroundImageName: "onboarding_bg_2"
             )
             .tag(1)

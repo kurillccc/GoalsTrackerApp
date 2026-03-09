@@ -10,7 +10,7 @@ import SwiftUI
 struct OnboardingPageView: View {
     
     // MARK: - Properties
-    let title: String
+    let title: LocalizedStringKey
     let backgroundImageName: String
 
     // MARK: - Body

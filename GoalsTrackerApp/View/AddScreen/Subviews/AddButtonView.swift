@@ -27,7 +27,7 @@ struct AddButtonView: View {
         Button {
             onDismiss()
         } label: {
-            Text("Отменить")
+            Text("cancelButtonTitle")
                 .padding()
                 .foregroundStyle(.red)
                 .frame(maxWidth: .infinity)
@@ -46,7 +46,7 @@ struct AddButtonView: View {
                 }
             }
         } label: {
-            Text("Создать")
+            Text("creationButtonTitle")
                 .bold()
                 .padding()
                 .foregroundStyle(.white)
