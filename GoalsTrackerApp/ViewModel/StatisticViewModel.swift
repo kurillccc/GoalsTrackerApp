@@ -57,7 +57,7 @@ final class StatisticViewModel: ObservableObject {
     private func calculateAllStatistics() {
         let allRecords = dataManager.readAllGoalRecords()
 
-        if !allRecords.isEmpty && allRecords.count > 2 { hasAnyData = true }
+        if !allRecords.isEmpty && allRecords.count >= 2 { hasAnyData = true }
         
         let goalsCount: Int
         if let dm = dataManager as? (any GoalsReadable) {
