@@ -51,7 +51,7 @@ struct GoalsView: View {
         NavigationView {
             Group {
                 if goals.isEmpty {
-                    GoalsEmptyView()
+                    ContentUnavailableView("emptyGoalsStubViewText", systemImage: "flame.fill")
                 } else if filteredGoals.isEmpty && !searchText.isEmpty {
                     ContentUnavailableView("emptySearchGoal", systemImage: "magnifyingglass")
                         .padding()
