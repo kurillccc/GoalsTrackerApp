@@ -11,6 +11,7 @@ import CoreData
 struct GoalsItemView: View {
     
     // MARK: - Properties
+    @State private var markAsDoneIsComplete = false
     @ObservedObject var vm: GoalsViewModel
     @ObservedObject var goal: Goal
     
@@ -79,8 +80,14 @@ struct GoalsItemView: View {
                 Button {
                     if goal.isCompletedToday {
                         vm.unmarkAsDone(goal)
+                        markAsDoneIsComplete = false
                     } else {
                         vm.markAsDone(goal)
+                        markAsDoneIsComplete = true
+                        DispatchQueue.main.async {
+                            markAsDoneIsComplete = false
+                        }
+                        
                     }
                 } label: {
                     if !goal.isCompletedToday
@@ -105,6 +112,7 @@ struct GoalsItemView: View {
                             )
                     }
                 }
+                .sensoryFeedback(.success, trigger: markAsDoneIsComplete)
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 10)
